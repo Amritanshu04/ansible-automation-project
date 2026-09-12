@@ -4,7 +4,7 @@
 
 This project demonstrates server automation using **Ansible** with two Ubuntu AWS EC2 instances.
 
-One EC2 instance is configured as the **Ansible Control Server**, while the second EC2 instance is used as the **Target Server**.
+One EC2 instance is configured as the **Ansible Control Server**, while the second EC2 instance is used as the **Target_ubuntu_Server**.
 
 The project focuses on establishing passwordless SSH authentication, executing Ansible ad-hoc commands, creating Ansible playbooks, deploying Nginx, and initializing an Ansible role using Ansible Galaxy.
 
@@ -70,7 +70,7 @@ This server was used as the **Ansible Control Server**.
 The second EC2 instance was named:
 
 ```text
-target-server-ansible
+target-ubuntu_server
 ```
 
 This server was used as the **Target Server** where Ansible tasks were executed.
@@ -141,7 +141,7 @@ From the Ansible server, the target server was accessed using SSH.
 Example:
 
 ```bash
-ssh <TARGET-PRIVATE-IP>
+ssh 172.31.33.175
 ```
 
 This established SSH connectivity between the Ansible Control Server and the Target Server.
@@ -158,6 +158,7 @@ An ad-hoc command was used to create a file on the target server.
 This demonstrated how Ansible can execute tasks remotely without requiring a complete playbook.
 
 ![Ansible Ad-Hoc Command](screenshots/07-adhoc-command.png)
+![File Created on Target Server](screenshots/08-file-created.png)
 ---
 
 # 📄 8. Create an Ansible Playbook
@@ -167,7 +168,9 @@ After working with ad-hoc commands, the project moved to the concept of **Ansibl
 A playbook was created to automate the installation and execution of Nginx on the target server.
 
 The playbook defines the tasks that Ansible performs on the target machine.
-![File Created on Target Server](screenshots/08-file-created.png)
+
+![File Created on Target Server](screenshots/18-file-created.png)
+
 
 ---
 
@@ -201,11 +204,11 @@ The following command was used:
 ```bash
 ansible-galaxy role init Kubernetes
 ```
-![Ansible Galaxy Role Initialization](screenshots/10-ansible-galaxy.png)
+![Ansible Galaxy Role Initialization](screenshots/11-ansible-galaxy.png)
 
 This generated the standard directory structure required for an Ansible role.
 
-![Kubernetes Ansible Role Structure](screenshots/11-kubernetes-role.png)
+![Kubernetes Ansible Role Structure](screenshots/12-kubernetes-role.png)
 
 > The Kubernetes role was initialized as part of learning and working with Ansible Roles. Kubernetes itself was not deployed as part of this project.
 
